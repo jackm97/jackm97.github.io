@@ -10,7 +10,7 @@ category: graphics
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <img class="img-fluid rounded z-depth-1" src="{{ '/assets/img/water3d.gif' | relative_url }}" alt="" 
-title="example image"/>
+title="3D fluid render"/>
     </div>
 </div>
 <div class="caption">
@@ -32,11 +32,11 @@ application like Blender for rendering.
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <img class="img-fluid rounded z-depth-1" src="{{ '/assets/img/smoke2d.gif' | relative_url }}" alt="" 
-title="example image"/>
+title="2D fluid render"/>
     </div>
     <div class="col-sm mt-3 mt-md-0">
         <img class="img-fluid rounded z-depth-1" src="{{ '/assets/img/sound2d.gif' | relative_url }}" alt="" 
-title="example image"/>
+title="2D sound propagation"/>
     </div>
 </div>
 <div class="caption">
