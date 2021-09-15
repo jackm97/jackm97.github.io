@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-description: <a href="#">Affiliations</a>. Address. Contacts. Moto. Etc.
+description: Computer Scientist/Physicist
 
 profile:
   align: right
@@ -12,8 +12,9 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com){:target="\_blank"}. You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Jack Myers graduated from University of California Santa Barbara in 2019 with a B.S. in Physics. After taking a year 
+off from school, where he worked at [LaunchPoint EPS](https://launchpointeps.com/) developing a modeling tool for 
+advanced aircraft propulsion [MAAP™](https://launchpointeps.com/maap/), he began his graduate education in Fall 
+of 2020 at Oregon State University studying computer science. He is on track to graduate with his M.S. degree Spring of next year.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/){:target="\_blank"} and [Academicons](https://jpswalsh.github.io/academicons/){:target="\_blank"}, like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+His research interests span physically-based animation/simulation and numerical methods. His current research focus is on improving the Lattice Boltzmann Method for fluid animation.
