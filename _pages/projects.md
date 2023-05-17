@@ -4,7 +4,7 @@ title: projects
 permalink: /projects/
 description: Latest personal projects
 nav: true
-display_categories: [graphics]
+display_categories: [graphics, HPC]
 horizontal: false
 ---
 
