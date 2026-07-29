@@ -14,15 +14,32 @@ import Base from '../layouts/Base.astro';
         <a class="btn" href="/files/jack-myers-resume.pdf">Download resume</a>
         <a class="btn" href="mailto:jack@myersjack.dev">jack@myersjack.dev</a>
       </p>
-      <img
-        class="hero-img"
-        src="/assets/light-front.png"
-        alt="Global illumination render produced by a meshless kinetic light transport solver: a Cornell-style scene with color bleed, soft shadows, and a refractive glass sphere"
-      />
+      <div class="collage">
+        <a class="big" href="/projects/#light-transport">
+          <img src="/assets/light-front.png"
+            alt="Global illumination render from a meshless kinetic light-transport solver: Cornell-style scene with color bleed, soft shadows, and a refractive glass sphere" />
+        </a>
+        <a class="big" href="/research/">
+          <img src="/assets/thesis-cathedral-volume.jpg"
+            alt="Volumetric acoustic wavefront propagating through a wireframe cathedral model" />
+        </a>
+        <a class="small" href="/research/">
+          <img src="/assets/thesis-doubleslit.jpg"
+            alt="Double-slit interference pattern reproduced by an acoustic wave simulation" />
+        </a>
+        <a class="small" href="/research/">
+          <img src="/assets/thesis-source-box.jpg"
+            alt="Standing-wave interference pattern from thousands of simultaneous acoustic sources in a box" />
+        </a>
+        <a class="small" href="/research/">
+          <img src="/assets/thesis-cathedral-slice.jpg"
+            alt="Cross-sectional slice of an acoustic wave field inside a cathedral scene" />
+        </a>
+      </div>
       <p class="img-caption">
-        From current research: full global illumination computed by a kinetic
-        light-transport solver on an unstructured point cloud — simulated once,
-        renderable from any viewpoint. <a href="/projects/#light-transport">More →</a>
+        Light and sound, simulated as transport on unstructured point clouds —
+        from the <a href="/projects/#light-transport">light-transport renderer</a>
+        (left) and my <a href="/research/">M.S. acoustics research</a>.
       </p>
     </section>
 

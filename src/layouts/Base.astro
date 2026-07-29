@@ -1,4 +1,7 @@
 ---
+import '@fontsource-variable/inter';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
 import '../styles/global.css';
 const { title = 'Jack Myers', description = 'Computational scientist & GPU systems engineer — numerical methods and the GPU-native frameworks that run them.' } = Astro.props;
 const nav = [
@@ -20,6 +23,15 @@ const path = Astro.url.pathname;
     <meta property="og:description" content={description} />
     <meta property="og:image" content="/assets/light-front.png" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>∇</text></svg>" />
+    <script is:inline>
+      (function () {
+        var t = localStorage.getItem('theme');
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
   </head>
   <body>
     <nav class="site">
@@ -28,6 +40,15 @@ const path = Astro.url.pathname;
         {nav.map((n) => (
           <a href={n.href} class={path === n.href || (n.href !== '/' && path.startsWith(n.href)) ? 'active' : ''}>{n.label}</a>
         ))}
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme" title="Toggle theme">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4.2" />
+            <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7" />
+          </svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.4 14.2A8.5 8.5 0 0 1 9.8 3.6a8.5 8.5 0 1 0 10.6 10.6Z" />
+          </svg>
+        </button>
       </div>
     </nav>
     <main>
@@ -42,5 +63,12 @@ const path = Astro.url.pathname;
         <a href="/files/jack-myers-resume.pdf">Resume (PDF)</a>
       </div>
     </footer>
+    <script is:inline>
+      document.getElementById('theme-toggle').addEventListener('click', function () {
+        var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem('theme', next);
+      });
+    </script>
   </body>
 </html>
