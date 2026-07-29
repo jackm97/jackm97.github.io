@@ -1,0 +1,120 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Projects — Jack Myers">
+  <div class="container wide">
+    <h1>Projects</h1>
+    <p class="dim">
+      Most of my current work builds on one core: a GPU-first modeling and
+      optimization framework, with applications layered on top of it.
+    </p>
+
+    <div class="card" id="cospanmdao">
+      <p class="meta">Framework · C++ / SYCL (AdaptiveCpp)</p>
+      <h3>CospanMDAO <span class="badge">source release upcoming</span></h3>
+      <p>
+        A GPU-first differentiable modeling &amp; optimization framework,
+        inspired by NASA's OpenMDAO and named for the category-theoretic
+        formalism for composing open systems. It is the core used to build
+        every project below: composable components and systems, zero-copy
+        connections, whole-model topological execution with first-class
+        cycles, hand-written adjoints for gradient-based optimization, and
+        runtime JIT kernel fusion — running cross-vendor via SYCL.
+      </p>
+      <p class="dim">
+        Lineage note: I spent six years building commercial optimization
+        tooling on OpenMDAO. CospanMDAO is my answer to the question that
+        work kept raising — what would this look like designed GPU-first?
+      </p>
+    </div>
+
+    <div class="card" id="light-transport">
+      <p class="meta">Rendering research · built on CospanMDAO</p>
+      <h3>Meshless Light Transport <span class="badge">publication in preparation</span></h3>
+      <p>
+        Kinetic global illumination on unstructured point clouds: light is
+        simulated as a transport process through the scene — no rays, no
+        shadow maps — producing full GI with color bleed, soft shadows, and
+        refractive materials.
+      </p>
+      <p>
+        The defining property: <strong>simulate once, render from any
+        viewpoint.</strong> The solver produces a view-independent radiance
+        cache that bakes to geometry and rasterizes in real time — camera
+        moves, scene relights itself for free. A promising fit for
+        early-stage design workflows where cameras and scenes change
+        constantly, and as a complement to ray-traced pipelines.
+      </p>
+      <div class="render-grid">
+        <img src="/assets/light-yaw-neg20.png" alt="Cornell-style scene rendered from a left-of-center viewpoint using the same one-time simulation" />
+        <img src="/assets/light-front.png" alt="Cornell-style scene rendered from a center viewpoint" />
+        <img src="/assets/light-yaw-pos20.png" alt="Cornell-style scene rendered from a right-of-center viewpoint" />
+      </div>
+      <p class="img-caption">
+        Three viewpoints, one simulation — no per-frame lighting computation.
+      </p>
+      <p class="dim">
+        An interactive in-browser demo is in the works. Full technical
+        write-up and source to follow with publication.
+      </p>
+    </div>
+
+    <div class="card" id="mycelium">
+      <p class="meta">Machine-learning research · built on CospanMDAO</p>
+      <h3>Mycelium</h3>
+      <p>
+        A research program exploring a different point in the space of
+        machine-learning architectures: a dynamical neural-field system in
+        the Amari/Wilson–Cowan tradition, with persistent state that evolves
+        continuously at inference time, trained with equilibrium methods
+        rather than backpropagation through time.
+      </p>
+      <p>
+        Early results show a qualitative phase change — from degenerate
+        output to varied, instance-specific behavior — including early
+        evidence of write, backtrack, edit, and continue dynamics in its
+        output buffers. It is young, ambitious, honest work; more when
+        there is more to show.
+      </p>
+    </div>
+
+    <div class="card" id="maap">
+      <p class="meta">Commercial product · LaunchPoint EPS · 2018–2024</p>
+      <h3>MAAP — Modeling Advanced Aircraft Propulsion</h3>
+      <p>
+        A physics-based digital-twin suite for electric and hybrid-electric
+        aircraft propulsion design, built on NASA's OpenMDAO. As principal
+        software author I carried it from Matlab prototype through a full
+        Python/OpenMDAO re-architecture to its 2021 commercial launch —
+        cutting customer design-tradeoff studies from weeks to hours.
+        <a href="https://launchpointeps.com/maap/">It remains on the market
+        today.</a>
+      </p>
+    </div>
+
+    <div class="card" id="tooling">
+      <p class="meta">Open source · GPU infrastructure</p>
+      <h3>SlabKit &amp; SYCLBuildKit</h3>
+      <p>
+        <a href="https://github.com/NAGAGroup/SlabKit">SlabKit</a>: a SYCL
+        USM memory-pool library — slab allocation, N-dimensional arrays,
+        RAII, kernel-safe view semantics.
+        <a href="https://github.com/NAGAGroup/CodeAccelerate-SYCLBuildKit">SYCLBuildKit</a>:
+        relocatable conda toolchains for the AdaptiveCpp SYCL compiler
+        (LLVM 20, all GPU backends) — write SYCL once, run on NVIDIA, AMD,
+        Intel, or CPU.
+      </p>
+    </div>
+
+    <div class="card" id="scalix">
+      <p class="meta">Open source · archived</p>
+      <h3>Scalix</h3>
+      <p>
+        An earlier data-parallel compute framework (CUDA) that automatically
+        scaled work across available devices — the proving ground for ideas
+        that matured into the projects above.
+        <a href="https://github.com/NAGAGroup/Scalix">GitHub</a>.
+      </p>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,46 @@
+---
+import '../styles/global.css';
+const { title = 'Jack Myers', description = 'Computational scientist & GPU systems engineer — numerical methods and the GPU-native frameworks that run them.' } = Astro.props;
+const nav = [
+  { href: '/', label: 'About' },
+  { href: '/projects/', label: 'Projects' },
+  { href: '/research/', label: 'Research' },
+  { href: '/blog/', label: 'Blog' },
+];
+const path = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/assets/light-front.png" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>∇</text></svg>" />
+  </head>
+  <body>
+    <nav class="site">
+      <div class="row">
+        <a class="name" href="/">Jack Myers</a>
+        {nav.map((n) => (
+          <a href={n.href} class={path === n.href || (n.href !== '/' && path.startsWith(n.href)) ? 'active' : ''}>{n.label}</a>
+        ))}
+      </div>
+    </nav>
+    <main>
+      <slot />
+    </main>
+    <footer class="site">
+      <div class="row">
+        <span>© 2026 Jack Myers</span>
+        <a href="mailto:jack@myersjack.dev">jack@myersjack.dev</a>
+        <a href="https://github.com/jackm97" rel="me">GitHub</a>
+        <a href="https://www.linkedin.com/in/j-myers" rel="me">LinkedIn</a>
+        <a href="/files/jack-myers-resume.pdf">Resume (PDF)</a>
+      </div>
+    </footer>
+  </body>
+</html>

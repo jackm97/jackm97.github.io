@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Jack Myers — Computational Scientist & GPU Systems Engineer">
+  <div class="container">
+    <section class="hero">
+      <h1>Jack Myers</h1>
+      <p class="tagline">
+        Computational scientist &amp; GPU systems engineer — I build numerical
+        methods and the GPU-native frameworks that run them, from variational
+        formulation down to driver-level execution.
+      </p>
+      <p>
+        <a class="btn" href="/files/jack-myers-resume.pdf">Download resume</a>
+        <a class="btn" href="mailto:jack@myersjack.dev">jack@myersjack.dev</a>
+      </p>
+      <img
+        class="hero-img"
+        src="/assets/light-front.png"
+        alt="Global illumination render produced by a meshless kinetic light transport solver: a Cornell-style scene with color bleed, soft shadows, and a refractive glass sphere"
+      />
+      <p class="img-caption">
+        From current research: full global illumination computed by a kinetic
+        light-transport solver on an unstructured point cloud — simulated once,
+        renderable from any viewpoint. <a href="/projects/#light-transport">More →</a>
+      </p>
+    </section>
+
+    <h2>About</h2>
+    <p>
+      I started in physics (B.S., UC Santa Barbara's College of Creative
+      Studies, summa cum laude) and have spent the years since pushing
+      physics-grade numerical software progressively closer to the metal.
+    </p>
+    <p>
+      At <strong>LaunchPoint EPS</strong> I was the principal software author
+      of <a href="https://launchpointeps.com/maap/">MAAP</a>, a commercial
+      digital-twin suite for electric aircraft propulsion design built on
+      NASA's OpenMDAO — carrying it from Matlab prototype through a full
+      Python re-architecture to commercial launch. In parallel, I completed a
+      research M.S. at Oregon State, where I developed a
+      <a href="/research/">novel meshless lattice Boltzmann method</a> for 3D
+      acoustic simulation in computer graphics — while working full-time.
+    </p>
+    <p>
+      Most recently I spent two years at <strong>Intel</strong> on the Level
+      Zero compute runtime for Intel GPUs: driver internals, pre-silicon
+      simulation infrastructure, and memory telemetry across two GPU product
+      lines.
+    </p>
+    <p>
+      Today I run an independent research program built on
+      <strong>CospanMDAO</strong>, my GPU-first differentiable modeling and
+      optimization framework — currently powering a
+      <a href="/projects/#light-transport">meshless light-transport renderer</a>
+      (publication in preparation) and
+      <a href="/projects/#mycelium">Mycelium</a>, a dynamical neural-field
+      architecture. The through-line, from electric motors to sound fields to
+      light to neural dynamics: first-principles physics, discretized
+      carefully, executed on GPUs.
+    </p>
+
+    <h2>Now</h2>
+    <ul>
+      <li>Open to <strong>simulation / scientific-computing, research
+        engineering, and HPC roles</strong> (remote-first; Portland, OR local
+        also works) — <a href="/files/jack-myers-resume.pdf">resume</a>.</li>
+      <li>Preparing the public source release of CospanMDAO.</li>
+      <li>Writing up the light-transport work for publication.</li>
+    </ul>
+  </div>
+</Base>
