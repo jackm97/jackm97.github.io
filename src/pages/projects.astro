@@ -71,22 +71,7 @@ import Base from '../layouts/Base.astro';
         term anywhere.
       </p>
 
-      <div class="render-grid">
-        <img src="/assets/light-fog-left.jpg" alt="Foggy textured scene rendered from a left-of-center viewpoint: volumetric light cone descending from the ceiling panel" />
-        <img src="/assets/light-fog-right.jpg" alt="Foggy textured scene rendered from a right-of-center viewpoint: light shaft and red wall scattering" />
-        <img src="/assets/light-fog-yaw.jpg" alt="Foggy textured scene rendered from a wide yaw angle, scattering consistent with the new viewpoint" />
-      </div>
-      <p class="img-caption">
-        Volumetric fog from three viewpoints, one cached simulation — the scattering re-renders correctly for every camera, with no per-frame lighting computation.
-        Captured live from the interactive viewer.
-      </p>
-      <div class="render-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-        <img src="/assets/light-gi-front.jpg" alt="Textured scene, clear air: emissive blue sphere, color bleed, soft shadows" />
-        <img src="/assets/light-fog-front.jpg" alt="The same scene and viewpoint with participating media: volumetric light shafts descending through fog" />
-      </div>
-      <p class="img-caption">
-        Same scene, same cache — clear air and participating media side by side.
-      </p>
+      
       <p>
         <strong>Honest limitations:</strong> band-limited by design — finite
         angular resolution and node density low-pass the light field, so
