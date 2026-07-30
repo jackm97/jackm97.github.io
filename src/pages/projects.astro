@@ -32,19 +32,45 @@ import Base from '../layouts/Base.astro';
       <p class="meta">Rendering research · built on CospanMDAO</p>
       <h3>Meshless Light Transport <span class="badge">publication in preparation</span></h3>
       <p>
-        Kinetic global illumination on unstructured point clouds: light is
-        simulated as a transport process through the scene — no rays, no
-        shadow maps — producing full GI with color bleed, soft shadows, and
-        refractive materials.
+        <strong>Simulate the light once — then fly a camera through the
+        frozen light field, from any angle, in real time.</strong> Light is
+        solved as a transport process through the scene on unstructured
+        point clouds — no rays, no shadow maps, no denoiser. Every effect
+        is a corollary, not a feature: color bleed, soft shadows, caustics,
+        Fresnel, and volumetrics all fall out of solving the radiative
+        transfer equation, and display is plain rasterization reading a
+        cached directional radiance field.
       </p>
-      <p>
-        The defining property: <strong>simulate once, render from any
-        viewpoint.</strong> The solver produces a view-independent radiance
-        cache that bakes to geometry and rasterizes in real time — camera
-        moves, scene relights itself for free. A promising fit for
-        early-stage design workflows where cameras and scenes change
-        constantly, and as a complement to ray-traced pipelines.
+
+      <video autoplay muted loop playsinline preload="metadata"
+             poster="/assets/vitrine-orbit-poster.jpg"
+             style="width:100%; border-radius: 8px; display:block;">
+        <source src="/assets/vitrine-orbit.mp4" type="video/mp4" />
+      </video>
+      <p class="img-caption">
+        Live orbit, captured from the interactive viewer — lighting fidelity
+        follows the camera at every distance and angle, from one cached
+        solve. No re-render, no quality falloff on approach.
       </p>
+
+      <div class="render-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <img src="/assets/vitrine-marble.jpg" alt="Close view of a glass marble beneath a ceiling light: internal structure visible through the glass, bright rim at the limb" />
+        <img src="/assets/vitrine-closeup.jpg" alt="Glass marble close-up showing interior ribbon structure with depth, lit by a soft overhead beam" />
+        <img src="/assets/vitrine-beam.jpg" alt="Wide view: the marble suspended in a visible light shaft passing through localized fog, stone sphere in shadow nearby" />
+        <img src="/assets/vitrine-caustic.jpg" alt="Low angle view: refracted light converging through the marble and pooling as a caustic beneath it" />
+      </div>
+      <p class="img-caption">
+        A single glass marble under a directional spotlight, wrapped in a
+        bounded fog volume — staged to chain transport phenomena through one
+        object: the overhead light refracts and converges through the marble,
+        pooling as a caustic at its base; grazing-angle rim brightening
+        emerges at the limb with no material logic in the display; interior
+        structure reads with true depth parallax; the marble's shadow
+        projects <em>into the beam itself</em>, not just onto surfaces. The
+        neighboring stone sphere is lit by bounce alone — there is no ambient
+        term anywhere.
+      </p>
+
       <div class="render-grid">
         <img src="/assets/light-fog-left.jpg" alt="Foggy textured scene rendered from a left-of-center viewpoint: volumetric light cone descending from the ceiling panel" />
         <img src="/assets/light-fog-right.jpg" alt="Foggy textured scene rendered from a right-of-center viewpoint: light shaft and red wall scattering" />
@@ -61,7 +87,17 @@ import Base from '../layouts/Base.astro';
       <p class="img-caption">
         Same scene, same cache — clear air and participating media side by side.
       </p>
+      <p>
+        <strong>Honest limitations:</strong> band-limited by design — finite
+        angular resolution and node density low-pass the light field, so
+        mirrors soften toward gloss and hard caustics toward pools. Softness
+        is the failure mode; absence never is. Re-lighting or moving geometry
+        requires re-simulation; camera movement never does.
+      </p>
       <p class="dim">
+        The staging above — spotlight size, fog placement, the dimness — is
+        an aesthetic choice layered on a physically-grounded solve;
+        prettier-but-radiometrically-wrong configurations were rejected.
         An interactive in-browser demo is in the works. Full technical
         write-up and source to follow with publication.
       </p>
