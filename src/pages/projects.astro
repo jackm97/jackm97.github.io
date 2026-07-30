@@ -46,19 +46,20 @@ import Base from '../layouts/Base.astro';
         constantly, and as a complement to ray-traced pipelines.
       </p>
       <div class="render-grid">
-        <img src="/assets/light-view-left.jpg" alt="Textured Cornell-style scene rendered from a left-of-center viewpoint using the same one-time simulation" />
-        <img src="/assets/light-gi-front.jpg" alt="Textured Cornell-style scene rendered from a center viewpoint, with an emissive blue sphere and color bleed" />
-        <img src="/assets/light-view-right.jpg" alt="Textured Cornell-style scene rendered from a right-of-center viewpoint, looking up toward the ceiling light" />
+        <img src="/assets/light-fog-left.jpg" alt="Foggy textured scene rendered from a left-of-center viewpoint: volumetric light cone descending from the ceiling panel" />
+        <img src="/assets/light-fog-right.jpg" alt="Foggy textured scene rendered from a right-of-center viewpoint: light shaft and red wall scattering" />
+        <img src="/assets/light-fog-yaw.jpg" alt="Foggy textured scene rendered from a wide yaw angle, scattering consistent with the new viewpoint" />
       </div>
       <p class="img-caption">
-        Three viewpoints, one simulation — no per-frame lighting computation.
+        Volumetric fog from three viewpoints, one cached simulation — the scattering re-renders correctly for every camera, with no per-frame lighting computation.
         Captured live from the interactive viewer.
       </p>
-      <div class="render-grid" style="grid-template-columns: minmax(0, 540px); justify-content: center;">
-        <img src="/assets/light-fog-front.jpg" alt="The same scene with participating media: volumetric light shafts descending from the ceiling light through fog" />
+      <div class="render-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <img src="/assets/light-gi-front.jpg" alt="Textured scene, clear air: emissive blue sphere, color bleed, soft shadows" />
+        <img src="/assets/light-fog-front.jpg" alt="The same scene and viewpoint with participating media: volumetric light shafts descending through fog" />
       </div>
       <p class="img-caption">
-        Participating media — volumetric light transport in the same simulation.
+        Same scene, same cache — clear air and participating media side by side.
       </p>
       <p class="dim">
         An interactive in-browser demo is in the works. Full technical
